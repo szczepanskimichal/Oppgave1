@@ -10,6 +10,7 @@ class Program
             Console.WriteLine("Vil du spille? (Y/N)");
             string playGame = Console.ReadLine();
 
+            /*
             if (playGame.ToUpper() == "Y")
             {
                 Console.WriteLine("Flott! La oss spille!");
@@ -23,6 +24,20 @@ class Program
             {
                 Console.WriteLine("Ugyldig valg!");
                 return;
+            }
+            */
+
+            switch(playGame.ToUpper())
+            {
+                case "Y":
+                    Console.WriteLine("Flott! La oss spille!");
+                    break;
+                case "N":
+                    Console.WriteLine("Ok, ha en fin dag!");
+                    return;
+                default:
+                    Console.WriteLine("Ugyldig valg!");
+                    return;
             }
 
             Console.WriteLine("Skriv ett tall mellom 1 og 7 foor å få ukedagen:");
@@ -56,11 +71,19 @@ class Program
                 Console.WriteLine("Ugyldig valg!");
             } 
             */
+            int dayNumber;
 
+            bool isValidNumber = int.TryParse(imputChoice, out dayNumber); // Konverterer strengen til et heltall og sjekker om det er gyldig tall
+            if (!isValidNumber)
+            {
+                Console.WriteLine("Det er ikke et gyldig tall! Vennligst skriv inn et tall mellom 1 og 7.");
+                continue; // Går tilbake til starten av løkken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            }
 
             // 
 
-            int dayNumber = Convert.ToInt32(imputChoice); // Konverterer strengen til et heltall
+            /*int dayNumber = Convert.ToInt32(imputChoice); // Konverterer strengen til et heltall*/
+
             switch (dayNumber)
             {
                 case 1:
@@ -85,7 +108,7 @@ class Program
                     Console.WriteLine("Sondag");
                     break;
                 default:
-                    Console.WriteLine("Ugyldig valg!");
+                    Console.WriteLine("Ugyldig valg!Tall mellom 1 og 7!!!");
                     break;
             }
 
