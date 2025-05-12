@@ -112,25 +112,34 @@ class Program
                     break;
             }
 
-
-            Console.WriteLine("Vil du spille igjen? (Y/N)");
-            string playAgain = Console.ReadLine();
-
-            if (playAgain.ToUpper() == "Y")
-            {
-                Console.WriteLine("Flott! La oss spille!");
-                continue; // restartuje grę od początku pętli
-            }
-            else if (playAgain.ToUpper() == "N")
+            if (!AskToPlayAgain())
             {
                 Console.WriteLine("Ok, ha en fin dag!");
-                break; // kończy pętlę i program
+                break; // avslutter programmet
             }
-            else
-            {
-                Console.WriteLine("Ugyldig valg!");
-                break;
-            }
+            break;
         }
     }
+
+/*Jeg skal også skrive en metode for å spille spillet på nytt snart, fordi denne koden ikke er veldig strukturert for meg*/
+    static bool AskToPlayAgain()
+    {
+        Console.WriteLine("Vil du spille igjen? (Y/N)");
+        string playAgain = Console.ReadLine();
+        if (playAgain.ToUpper() == "Y")
+        {
+            return true;
+        }
+        else if (playAgain.ToUpper() == "N")
+        {
+            return false;
+        }
+        else
+        {
+            Console.WriteLine("Ugyldig valg!");
+            return false; // Avslutter programmet hvis det er et ugyldig valg
+        }
+    }
+
+
 }
