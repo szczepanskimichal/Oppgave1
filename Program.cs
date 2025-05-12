@@ -36,6 +36,7 @@ class Program
 
             string imputChoice = Console.ReadLine();
 
+            /*
             if (imputChoice == "1")
             { Console.WriteLine("Mandag"); }
             else if (imputChoice == "2")
@@ -53,7 +54,41 @@ class Program
             else
             {
                 Console.WriteLine("Ugyldig valg!");
+            } 
+            */
+
+
+            // 
+
+            int dayNumber = Convert.ToInt32(imputChoice); // Konverterer strengen til et heltall
+            switch (dayNumber)
+            {
+                case 1:
+                    Console.WriteLine("Mandag");
+                    break;
+                case 2:
+                    Console.WriteLine("Tirsdag");
+                    break;
+                case 3:
+                    Console.WriteLine("Onsdag");
+                    break;
+                case 4:
+                    Console.WriteLine("Torsdag");
+                    break;
+                case 5:
+                    Console.WriteLine("Fredag");
+                    break;
+                case 6:
+                    Console.WriteLine("Lordag");
+                    break;
+                case 7:
+                    Console.WriteLine("Sondag");
+                    break;
+                default:
+                    Console.WriteLine("Ugyldig valg!");
+                    break;
             }
+
 
             Console.WriteLine("Vil du spille igjen? (Y/N)");
             string playAgain = Console.ReadLine();
